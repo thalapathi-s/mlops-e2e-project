@@ -1,0 +1,19 @@
+stages:
+  validate:
+    cmd: python src/data_validation.py
+    deps:
+      - data/raw/reviews.csv
+
+  preprocess:
+    cmd: python src/preprocessing.py
+    deps:
+      - data/raw/reviews.csv
+    outs:
+      - data/processed/clean.csv
+
+  train:
+    cmd: python src/train.py
+    deps:
+      - data/processed/clean.csv
+    outs:
+      - models/model.pkl
