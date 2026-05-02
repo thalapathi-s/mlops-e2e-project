@@ -26,22 +26,22 @@ jobs:
     # 3️⃣ Build API image
     - name: Build API Docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/loksai-mlops830api:latest -f docker/Dockerfile.api .
+        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/loksai-mlops830api:latest -f docker/Dockerfile.api .
 
     # 4️⃣ Build UI image
     - name: Build UI Docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/loksai-mlops830ui:latest -f docker/Dockerfile.ui .
+        docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/loksai-mlops830ui:latest -f docker/Dockerfile.ui .
 
     # 5️⃣ Push API image
     - name: Push API image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/loksai-mlops830api:latest
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/loksai-mlops830api:latest
 
     # 6️⃣ Push UI image
     - name: Push UI image
       run: |
-        docker push ${{ secrets.DOCKER_USERNAME }}/loksai-mlops830ui:latest
+        docker push ${{ secrets.DOCKERHUB_USERNAME }}/loksai-mlops830ui:latest
 
   # =============================
   # JOB 2: Deploy to Kubernetes
